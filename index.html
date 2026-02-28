@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NW POS - Travel Expense</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="login-view" class="active">
+        <div class="login-page">
+            <div class="user-icon-circle"><i class="fas fa-user-large"></i></div>
+            <h1>NW POS</h1>
+            <p class="subtitle">Manage your travel expenses effortlessly</p>
+            <div class="login-card">
+                <div class="tabs">
+                    <button id="login-tab" class="tab-active">Login</button>
+                    <button id="register-tab">Register</button>
+                </div>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" value="s@gmail.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" value="123" required>
+                        <i class="fas fa-eye show-pass" id="togglePassword"></i>
+                    </div>
+                    <button type="submit" class="sign-in-btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+                </form>
+
+                <form id="register-form" class="hidden">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="reg-name" placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="reg-email" placeholder="s@gmail.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="reg-password" placeholder="•••••">
+                        <i class="fas fa-eye show-pass toggleRegPassword"></i>
+                    </div>
+                    <button type="submit" class="sign-in-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+                </form>
+            </div>
+            <p class="footer-register" id="footer-text">Don't have an account? <a href="#" id="go-to-register">Register now</a></p>
+        </div>
+    </div>
+
+    <div id="dashboard-view" class="hidden">
+        <header class="header">
+            <div class="header-user">
+                <div class="document-icon-circle"><i class="fas fa-file-lines"></i></div>
+                <div><h2>Welcome, s</h2><p>Manage your conveyance</p></div>
+            </div>
+            <button id="logout-btn" class="logout-btn">
+    <i class="fas fa-sign-out-alt"></i> Logout
+</button>
+           
+        </header>
+
+        <main class="main-content" id="main-container">
+            <div id="cards-wrapper">
+                <div class="conveyance-card">
+                    <div class="date-selector">
+                        <div class="date-label">
+                            <div class="circle-num">1</div>
+                            <i class="fas fa-calendar-days"></i>
+                            <span>Select Date</span>
+                        </div>
+                        <div class="date-input-field">
+                            <i class="fas fa-calendar-alt"></i>
+                            <input type="date" value="2026-03-01" class="date-text">
+                        </div>
+                        <i style="color: red;" class="fas fa-trash-can delete-card"></i> 
+                    </div>
+
+                    <h3>Conveyance Entries</h3>
+                    <div class="entries-list">
+                        <div class="entry-row">
+                            <div class="entry-header">
+                                <div class="row-num">1</div>
+                                <div class="total-badge">Total: ৳<span class="row-total">0</span></div>
+                                <i style="color: red;" class="fas fa-trash-can delete-row"></i>
+                            </div>
+                            <div class="inputs-grid">
+                                <div class="input-item"><label><i class="fas fa-map-marker-alt"></i> From</label><input type="text" placeholder="Starting point" required></div>
+                                <div class="input-item"><label><i class="fas fa-location-dot"></i> To</label><input type="text" placeholder="Destination"></div>
+                                <div class="input-item"><label><i class="fas fa-bus-simple"></i> Transport</label><input type="text" placeholder="e.g., Bus, Train"></div>
+                                <div class="input-item"><label><i class="fas fa-money-bill-wave"></i> Amount (৳)</label><input type="number" class="calc-total amount" placeholder="0"></div>
+                                <div class="input-item colspan-2"><label><i class="fas fa-list-ul"></i> Purpose</label><input type="text" placeholder="Purpose of travel"></div>
+                                <div class="input-item"><label><i class="fas fa-utensils"></i> Food (৳)</label><input type="number" class="calc-total food" placeholder="0"></div>
+                                <div class="input-item"><label><i class="fas fa-hotel"></i> Hotel (৳)</label><input type="number" class="calc-total hotel" placeholder="0"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-row-btn"><i class="fas fa-plus"></i> Add Row</button>
+                </div>
+            </div>
+            <button id="add-date-btn" class="add-date-btn"><i class="fas fa-plus"></i> Add Another Date</button>
+        </main>
+
+        <footer class="footer-calc"> 
+            <div class="grand-total">
+                <i style="text-align: center; padding-top: 14px;" class="fas fa-calculator calc-icon"></i>
+                <div><span class="label">Grand Total</span><span class="total-amount">৳<span id="final-total">0</span></span></div>
+            </div>
+            <button class="save-sheet-btn"><i class="fas fa-file-export"></i> Save to Sheet</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
