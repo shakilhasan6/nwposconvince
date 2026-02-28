@@ -118,7 +118,7 @@ body { background: var(--bg); color: var(--text); padding-bottom: 100px; }
 }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 390 px) {
     .inputs-grid { grid-template-columns: 1fr; }
     .user_name{
        font-size: 14px;
