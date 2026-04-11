@@ -8,7 +8,10 @@
     --border: #E2E8F0;
     --danger: #EF4444;
 }
-
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: math; }
 body { background: var(--bg); color: var(--text); padding-bottom: 100px; }
 .hidden { display: none !important; }
@@ -64,7 +67,13 @@ body { background: var(--bg); color: var(--text); padding-bottom: 100px; }
 .inputs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .colspan-2 { grid-column: span 2; }
 .input-item label { font-size: 13px; color: var(--text); font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-.input-item input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; outline: none; background: #F8FAFC; }
+.input-item input {width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background: #F8FAFC; }
 .input-item input:focus { border-color: var(--primary); background: white; }
 
 .add-row-btn { width: 100%; background: #F1F5F9; border: 1px dashed #CBD5E1; padding: 12px; border-radius: 10px; cursor: pointer; color: var(--text); font-weight: 600; transition: 0.2s; }
@@ -76,12 +85,76 @@ body { background: var(--bg); color: var(--text); padding-bottom: 100px; }
 .delete-row { color: #94A3B8; cursor: pointer; }
 .delete-row:hover { color: var(--danger); }
 
-.footer-calc { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); box-shadow: 0 -4px 12px rgba(0,0,0,0.05); }
-.grand-total { display: flex; align-items: center; gap: 16px; }
-.calc-icon { width: 48px; height: 48px; background: #F1F5F9; border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 22px; color: var(--primary); }
-.total-amount { font-size: 28px; font-weight: 800; color: var(--text); }
-.save-sheet-btn { background: #22C55E; color: white; border: none; padding: 14px 28px; border-radius: 10px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; }
 
+/* General Footer Styling */
+.footer-calc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px 30px;
+    border-top: 2px solid #f1f5f9;
+    position: sticky;
+    bottom: 0;
+    z-index: 100;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.grand-total {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.calc-icon-box {
+    width: 45px;
+    height: 45px;
+    background: #eff6ff;
+    color: #3b82f6;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.total-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.total-details .label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.total-details .total-amount {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Save Button Styling */
+.save-sheet-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.save-sheet-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
 
 /* advanced button styles */
 
@@ -171,70 +244,143 @@ body { background: var(--bg); color: var(--text); padding-bottom: 100px; }
 
 
 
+/* Tablet & Small Screens */
 @media (max-width: 768px) {
-    .inputs-grid { grid-template-columns: repeat(2, 1fr); }
-    .colspan-2 { grid-column: span 2; }
-}
-@media (max-width: 480px) {
-    .inputs-grid { grid-template-columns: 1fr; }
-    .colspan-2 { grid-column: span 1; }
-    .date-selector { flex-direction: column; align-items: flex-start; }
-    .date-input-field { width: 100%; max-width: none; }
-    .footer-calc { padding: 12px 16px; flex-direction: column; gap: 12px; }
-    .save-sheet-btn { width: 100%; justify-content: center; }
-     .user_name{
-       font-size: 14px;
+    .inputs-grid { 
+        grid-template-columns: repeat(2, 1fr); 
     }
-    .user-title{
-        display: none;
+    .colspan-2 { 
+        grid-column: span 2; 
     }
-      .header {
-    padding: 0px 24px;
-}
-.main-content {
-    margin: 20px auto;
-    padding: 0px 0px;
-}
-.entry-row {
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    padding: 12px;
-    border-radius: 12px;
-    margin-bottom: 16px;
-    position: relative;
-  width: 467px;
-        margin-left: -20px;
-}
 }
 
-@media (max-width: 390px) {
-    .inputs-grid { grid-template-columns: 1fr; }
-    .user_name{
-       font-size: 14px;
+/* Common Mobile Styles (Main Fix) */
+@media (max-width: 480px) {
+
+
+  .date-selector {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important; /* Field gulor majhe distance */
+        width: 100% !important;
+        padding: 0 2px !important; /* 2-3px side gap */
+        box-sizing: border-box;
     }
-    .user-title{
-        display: none;
+
+    /* 2. Protiti input field ke full width kora */
+    .date-input-field {
+        display: flex;
+        align-items: center;
+        width: 100% !important;
+        max-width: none !important;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 10px 12px !important;
+        box-sizing: border-box;
     }
-    .header {
-    padding: 0px 24px;
+
+    /* 3. Input, Text ebong Select box er width adjust kora */
+    .date-input-field input, 
+    .date-input-field select {
+        flex: 1; /* Icon bade baki puro jaiga nibe */
+        width: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        font-size: 15px;
+        color: #334155;
+        padding-left: 10px !important;
+    }
+
+    /* Icon gulo ke thikmoto alignment kora */
+    .date-input-field i {
+        color: #64748b;
+        width: 20px;
+        text-align: center;
+    }
+
+    /* Select option-er jhamela komanor jonno */
+    .date-input-field select {
+        appearance: none; /* Default arrow soraite hole */
+        cursor: pointer;
+    }
+    /* 1. Parent card er padding ekbare komiye deya jate bhetorer row jaiga pay */
+    .conveyance-card {
+        padding: 8px 4px !important; /* Side-e khub-i choto gap */
+        margin: 10px 0 !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* 2. Entries list er barthi margin/padding remove kora */
+    .entries-list {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    /* 3. Entry Row ke screen-er sathe misiye deya */
+    .entry-row {
+        width: calc(100% - 6px) !important; /* 100% theke 6px kom (orthat duipashe 3px kore gap) */
+        margin: 0 auto 15px auto !important; /* Auto margin diye center kora */
+        padding: 12px 10px !important;
+        box-sizing: border-box;
+        border-radius: 8px; /* Mobile look er jonno round border */
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    /* 4. Input grid gulo jeno bhetore thik thake */
+    .inputs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+
+    /* 5. Date selector fix */
+    .date-selector {
+        flex-direction: column !important;
+        gap: 8px;
+    }
+    
+    .date-input-field {
+        width: 100% !important;
+    }
+
+       .footer-calc {
+        flex-direction: column;
+        gap: 2px;
+        padding: 4px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .grand-total {
+        width: 100%;
+        justify-content: space-between; /* Amount-ti ekdom daane thakbe */
+        background: #f8fafc;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .save-sheet-btn {
+        width: 100%; /* Purno width jure button */
+        justify-content: center;
+        padding: 15px;
+        font-size: 18px;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    .total-details .total-amount {
+        font-size: 20px;
+    }
 }
-.main-content {
-    margin: 20px auto;
-    padding: 0px 0px;
-}
-.entry-row {
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    padding: 12px;
-    border-radius: 12px;
-    margin-bottom: 16px;
-    position: relative;
-   width: 360px;
-    margin-left: -21px;
-}
-    .colspan-2 { grid-column: span 1; }
-    .date-selector { flex-direction: column; align-items: flex-start; }
-    .date-input-field { width: 100%; max-width: none; }
-    .footer-calc { padding: 0px 16px; flex-direction: column; gap: 0px; }
-    .save-sheet-btn { width: 100%; justify-content: center; padding: 11px 12px; }
+
+/* Extra Small Phones (iPhone SE, etc.) */
+@media (max-width: 360px) {
+    .entry-row {
+        padding: 10px;
+    }
+    .total-badge {
+        font-size: 12px;
+    }
 }
