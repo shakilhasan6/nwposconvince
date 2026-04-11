@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
     <title>NW POS - Travel Expense</title>
     <link rel="stylesheet" href="style.css" />
     <link
@@ -75,7 +76,7 @@
             <i class="fas fa-file-lines"></i>
           </div>
           <div>
-            <h2 class="user_name"></h2>
+            <h4 class="user_name"></h4>
             <p class="user-title">Manage your conveyance</p>
           </div>
         </div>
@@ -105,12 +106,14 @@
                 <i class="fas fa-calendar-days"></i>
                 <span>Select Date</span>
               </div>
-              <div class="date-input-field">
+              <div class=" date-input-field">
+                <div class="date-input-field">
                 <i class="fas fa-calendar-alt"></i>
                 <input type="date" value="2026-03-01" class="date-text" />
               </div>
 
               <i style="color: red" class="fas fa-trash-can delete-card"></i>
+              </div>
             </div>
 
             <h3>Conveyance Entries</h3>
@@ -246,20 +249,20 @@
       </main>
 
       <footer class="footer-calc">
-        <div class="grand-total">
-          <i
-            style="text-align: center; padding-top: 14px"
-            class="fas fa-calculator calc-icon"
-          ></i>
-          <div>
-            <span class="label">Grand Total</span
-            ><span class="total-amount">৳<span id="final-total">0</span></span>
-          </div>
-        </div>
-        <button class="save-sheet-btn">
-          <i class="fas fa-file-export"></i> Save to Sheet
-        </button>
-      </footer>
+  <div class="grand-total">
+    <div class="calc-icon-box">
+      <i class="fas fa-calculator"></i>
+    </div>
+    <div class="total-details">
+      <span class="label">Grand Total</span>
+      <span class="total-amount">৳<span id="final-total">0</span></span>
+    </div>
+  </div>
+  <button class="save-sheet-btn">
+    <i class="fas fa-file-export"></i> 
+    <span>Save to Sheet</span>
+  </button>
+</footer>
     </div>
 
     <script src="script.js"></script>
