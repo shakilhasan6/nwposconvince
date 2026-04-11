@@ -229,7 +229,7 @@ body { background: var(--bg); color: var(--text); padding-bottom: 100px; }
     border-radius: 12px;
     margin-bottom: 16px;
     position: relative;
-   width: 382px;
+   width: 360px;
     margin-left: -21px;
 }
     .colspan-2 { grid-column: span 1; }
