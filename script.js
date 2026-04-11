@@ -190,7 +190,7 @@ function showDashboard(name) {
   localStorage.setItem("userName", name);
   document.getElementById("login-view").classList.add("hidden");
   document.getElementById("dashboard-view").classList.remove("hidden");
-  document.querySelector(".header-user h2").textContent = `${name}`;
+  document.querySelector(".header-user h4").textContent = `${name}`;
 }
 
 // --- Login Handle ---
